@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: nocodb
+    plan: standard
+    runtime: image
+
+    envVars:
+      - key: NC_AUTH_JWT_SECRET
+        generateValue: true
+
+    image:
+      url: docker.io/nocodb/nocodb:latest
+
+    disk:
+      name: app-data
+      mountPath: /usr/app/data
+      sizeGB: 5
